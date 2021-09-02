@@ -33,6 +33,26 @@ public class LoginPhoneBook {
 
     }
 
+    @Test
+    public void loginXpathTest(){
+        //--- Open login page ---
+        WebElement loginForm = driver.findElement(By.xpath("//div/a[3]"));
+        //                                                  //a[text()='LOGIN']
+        //                                                  //a[3]
+
+        //--- click on email text-box ---
+        typeTextBox(By.xpath("//input[1]"), "a1@b1.ru");
+        //                    //*[@placeholder='Email']
+
+        //--- click on password text-box ---
+        typeTextBox(By.xpath("//input[2]"), "AAbb3'$'");
+        //                    //*[contains(@placeholder,'Password')]
+
+        //--- click on login button ---
+        WebElement loginBtn = driver.findElement(By.xpath("//button[contains(.,' Login')]"));
+        loginBtn.click();
+    }
+
     public void typeTextBox(By locator, String text){
         WebElement element = driver.findElement(locator);
         element.click();
